@@ -43,7 +43,7 @@ export async function postBookingByRoomId(userId: number, roomId: number) {
 export async function updateUserBookingRoomById(userId: number, roomId: number, bookingId: number) {
   const booking = await selectBookingById(bookingId);
 
-  if (booking?.userId !== userId) throw forbiddenError;
+  if (booking?.userId !== userId) throw forbiddenError();
 
   const room = await selectRoomById(roomId);
 
